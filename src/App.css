@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.ui.tabular.menu .item {
+  flex: 1 1 0;
+}
+
+.tabPadding {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 100vh;
+  opacity: 0.9;
+  background-color: aliceblue;
+}

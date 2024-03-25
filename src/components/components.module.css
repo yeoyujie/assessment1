@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../public/bg.jpg");
+  background-size: cover;
+  z-index: -1;
+}
+
+.wideField {
+  width: 30%;
+}
+
+Form {
+  background-color: aliceblue;
+  padding: 80px 20px;
+  border-radius: 16px;
+  opacity: 0.95;
+}
+
+@media (max-width: 800px) {
+  .wideField {
+    width: 80%;
+  }
+
+  Form {
+    padding: 40px 10px;
+  }
+}
