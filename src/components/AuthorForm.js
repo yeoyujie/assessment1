@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import styles from "./components.module.css";
 import { FormField, FormButton, Form, Message } from "semantic-ui-react";
+import styles from "./components.module.css";
 
 function AuthorForm({ onAuthorSubmit }) {
   const authorNameRef = useRef();
