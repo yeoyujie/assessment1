@@ -9,11 +9,20 @@ import DetailedAuthorList from "./components/DetailedAuthorList";
 import "./App.css";
 
 function App() {
-  const [authorNames, setAuthorNames] = useState([]);
+  const initialAuthorNames =
+    JSON.parse(localStorage.getItem("authorNames")) || [];
+
+  const [authorNames, setAuthorNames] = useState(initialAuthorNames);
+
   const [apiAuthors, setApiAuthors] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // For API
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  // Updates localStorage whenever authorNames change
+  useEffect(() => {
+    localStorage.setItem("authorNames", JSON.stringify(authorNames));
+  }, [authorNames]);
 
   // Validates if the submitted name is empty/duplicate/valid and display error/success message accordingly.
   const handleAuthorSubmit = (authorName) => {
