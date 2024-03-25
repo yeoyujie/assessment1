@@ -12,6 +12,7 @@ function DetailedAuthorList({ authors }) {
     <div>
       <Card.Group itemsPerRow={4}>
         {authors.map((author, index) => {
+          // Assigning alternate colors to users based on their index in the list.
           const color =
             index % 3 === 0 ? "red" : index % 3 === 1 ? "orange" : "yellow";
           return (

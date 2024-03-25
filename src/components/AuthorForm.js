@@ -8,6 +8,7 @@ function AuthorForm({ onAuthorSubmit }) {
   const [success, setSuccess] = useState("");
 
   const handleSubmit = (event) => {
+    // Check whether input field is empty and display success/error messages accordingly
     event.preventDefault();
     const authorName = authorNameRef.current.value;
     if (authorName === "") {
