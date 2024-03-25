@@ -12,9 +12,22 @@ function App() {
   const [authorNames, setAuthorNames] = useState([]);
   const [apiAuthors, setApiAuthors] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
+  // Validates if the submitted name is empty/duplicate/valid and display error/success message accordingly.
   const handleAuthorSubmit = (authorName) => {
-    setAuthorNames((prevNames) => [...prevNames, authorName]);
+    if (authorName === "") {
+      setError("Author name cannot be empty");
+      setSuccess("");
+    } else if (authorNames.includes(authorName)) {
+      setError(`Author "${authorName}" already exists!`);
+      setSuccess("");
+    } else {
+      setAuthorNames((prevNames) => [...prevNames, authorName]);
+      setError("");
+      setSuccess(`Author "${authorName}" successfully submitted!`);
+    }
   };
 
   const handleClearAuthors = () => {
@@ -61,7 +74,11 @@ function App() {
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div style={{ width: "50%" }}>
-        <AuthorForm onAuthorSubmit={handleAuthorSubmit} />
+        <AuthorForm
+          onAuthorSubmit={handleAuthorSubmit}
+          error={error}
+          success={success}
+        />
       </div>
       <div style={{ width: "50%" }}>
         <Tab panes={panes} className="tabPadding" />

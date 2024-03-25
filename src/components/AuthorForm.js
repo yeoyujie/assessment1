@@ -1,25 +1,15 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { FormField, FormButton, Form, Message } from "semantic-ui-react";
 import styles from "./components.module.css";
 
-function AuthorForm({ onAuthorSubmit }) {
+function AuthorForm({ onAuthorSubmit, error, success }) {
   const authorNameRef = useRef();
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
 
   const handleSubmit = (event) => {
-    // Check whether input field is empty and display success/error messages accordingly
     event.preventDefault();
     const authorName = authorNameRef.current.value;
-    if (authorName === "") {
-      setError("Author name cannot be empty");
-      setSuccess("");
-    } else {
-      onAuthorSubmit(authorName);
-      authorNameRef.current.value = "";
-      setError("");
-      setSuccess(`Author "${authorName}" successfully submitted!`);
-    }
+    onAuthorSubmit(authorName);
+    authorNameRef.current.value = "";
   };
 
   return (
