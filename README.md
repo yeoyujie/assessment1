@@ -16,3 +16,8 @@ To run the application, follow these steps:
 2. Install the dependencies with `npm install`.
 3. Start the application with `npm start`.
 4. Open `http://localhost:3000` in your web browser.
+
+## Preview
+
+![alt text](image-1.png)
+![alt text](image.png)
